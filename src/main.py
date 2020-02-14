@@ -4,27 +4,29 @@ from chessPieces import *
 
 if __name__ == '__main__':
 
-    team_a = {
-        Pawn(position=[1, 0], team='a'), Pawn(position=[1, 1], team='a'),
-        Pawn(position=[1, 2], team='a'), Pawn(position=[1, 3], team='a'),
-        Pawn(position=[1, 4], team='a'), Pawn(position=[1, 5], team='a'),
-        Pawn(position=[1, 6], team='a'), Pawn(position=[1, 7], team='a'),
-        Rook(position=[0, 0], team='a'), Rook(position=[0, 7], team='a'),
-        Knights(position=[0, 1], team='a'), Knights(position=[0, 6], team='a'),
-        Bishop(position=[0, 2], team='a'), Bishop(position=[0, 5], team='a'),
-        King(position=[0, 4], team='a'), Queen(position=[0, 3], team='a')
-    }
+    team_a = [
+        Pawn(position=[1, 0], player='a'), Pawn(position=[1, 1], player='a'),
+        Pawn(position=[1, 2], player='a'), Pawn(position=[1, 3], player='a'),
+        Pawn(position=[1, 4], player='a'), Pawn(position=[1, 5], player='a'),
+        Pawn(position=[1, 6], player='a'), Pawn(position=[1, 7], player='a'),
+        Rook(position=[0, 0], player='a'), Rook(position=[0, 7], player='a'),
+        Knights(position=[0, 1], player='a'), Knights(position=[0, 6], player='a'),
+        Bishop(position=[0, 2], player='a'), Bishop(position=[0, 5], player='a'),
+        King(position=[0, 4], player='a'), Queen(position=[0, 3], player='a')
+    ]
 
-    team_b = {
-        Pawn(position=[6, 0], team='b'), Pawn(position=[6, 1], team='b'),
-        Pawn(position=[6, 2], team='b'), Pawn(position=[6, 3], team='b'),
-        Pawn(position=[6, 4], team='b'), Pawn(position=[6, 5], team='b'),
-        Pawn(position=[6, 6], team='b'), Pawn(position=[6, 7], team='b'),
-        Rook(position=[7, 0], team='b'), Rook(position=[7, 7], team='b'),
-        Knights(position=[7, 1], team='b'), Knights(position=[7, 6], team='b'),
-        Bishop(position=[7, 2], team='b'), Bishop(position=[7, 5], team='b'),
-        King(position=[7, 4], team='b'), Queen(position=[7, 3], team='b')
-    }
+    team_b = [
+        Pawn(position=[6, 0], player='b'), Pawn(position=[6, 1], player='b'),
+        Pawn(position=[6, 2], player='b'), Pawn(position=[6, 3], player='b'),
+        Pawn(position=[6, 4], player='b'), Pawn(position=[6, 5], player='b'),
+        Pawn(position=[6, 6], player='b'), Pawn(position=[6, 7], player='b'),
+        Rook(position=[7, 0], player='b'), Rook(position=[7, 7], player='b'),
+        Knights(position=[7, 1], player='b'), Knights(position=[7, 6], player='b'),
+        Bishop(position=[7, 2], player='b'), Bishop(position=[7, 5], player='b'),
+        King(position=[7, 4], player='b'), Queen(position=[7, 3], player='b')
+    ]
+
+    team_b[0].move(position=(5,0))
 
     board = np.empty([8, 8], dtype=object)
 
