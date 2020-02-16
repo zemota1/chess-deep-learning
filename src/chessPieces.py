@@ -45,13 +45,13 @@ class Pawn(Piece):
 
     def move(self, position):
         if self.get_player() == 'a':
-            if position[0] == self.get_position()[0] + 1 and position[1] == self.get_position()[1]:
+            if position[0]+1 == self.get_position()[0]+2 and position[1]+1 == self.get_position()[1]+1:
                 self.set_position(position)
             else:
                 print("cannot move")
 
         if self.get_player() == 'b':
-            if position[0] == self.get_position()[0] - 1 and position[1] == self.get_position()[1]:
+            if position[0]+1 == self.get_position()[0] and position[1]+1 == self.get_position()[1]+1:
                 self.set_position(position)
             else:
                 print("cannot move")
@@ -70,8 +70,8 @@ class King(Piece):
             return "k"
 
     def move(self, position):
-        if (position[0] == (self.get_position()[0] + 1 or self.get_position()[0] - 1 or self.get_position()[0])) \
-                or (position[1] == (self.get_position()[1] + 1 or self.get_position()[1] - 1 or self.get_position()[1])):
+        if (position[0]+1 == (self.get_position()[0]+2 or self.get_position()[0] or self.get_position()[0]+1)) \
+                or (position[1]+1 == (self.get_position()[1]+2 or self.get_position()[1] or self.get_position()[1]+1)):
             self.set_position(position)
         else:
             print("cannot move")
@@ -95,7 +95,7 @@ class Rook(Piece):
             return "r"
 
     def move(self, position):
-        if position[0] == self.get_position()[0] or position[1] == self.get_position()[1]:
+        if position[0]+1 == self.get_position()[0]+1 or position[1]+1 == self.get_position()[1]+1:
             self.set_position(position)
         else:
             print("cannot move")
@@ -113,7 +113,7 @@ class Bishop(Piece):
             return "b"
 
     def move(self, position):
-        if abs(position[0]-self.get_position()[0]) == abs(position[1]-self.get_position()[1]):
+        if abs(position[0] - self.get_position()[0]) == abs(position[1] - self.get_position()[1]):
             self.set_position(position)
         else:
             print("cannot move")
@@ -131,9 +131,9 @@ class Queen(Piece):
             return "q"
 
     def move(self, position):
-        if (abs(position[0]-self.get_position()[0]) == abs(position[1]-self.get_position()[1])) \
-                or position[0] == self.get_position()[0] \
-                or position[1] == self.get_position()[1]:
+        if (abs(position[0]+1 - self.get_position()[0]+1) == abs(position[1]+1 - self.get_position()[1]+1)) \
+                or position[0]+1 == self.get_position()[0]+1 \
+                or position[1]+1 == self.get_position()[1]+1:
             self.set_position(position)
 
         else:
@@ -152,11 +152,11 @@ class Knights(Piece):
             return "n"
 
     def move(self, position):
-        if ((self.get_position()[0] == (position[0] + 1 or position[0] - 1))
-            and (self.get_position()[1] == (position[1] + 2 or position[1] - 2)))  \
+        if ((self.get_position()[0]+1 == position[0] + 2 or position[0] - 2)
+            and (self.get_position()[1]+1 == position[1] + 3 or position[1] - 3))  \
                 or \
-                ((self.get_position()[0] == (position[0] + 2 or position[0] - 2))
-                 and (self.get_position()[1] == (position[1] + 1 or position[1] - 1))):\
+                ((self.get_position()[0]+1 == (position[0] + 3 or position[0] - 3))
+                 and (self.get_position()[1]+1 == (position[1] + 2 or position[1] - 2))):\
                 self.set_position(position)
 
         else:
