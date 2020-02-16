@@ -38,16 +38,20 @@ class Pawn(Piece):
         super().__init__(position, player)
 
     def __repr__(self):
-        return f"{self.get_player()}6"
+        if self.get_player() == 'a':
+            return "P"
+        else:
+            return "p"
 
     def move(self, position):
         if self.get_player() == 'a':
-            if position[0] == self.get_position()[0] + 1:
+            if position[0] == self.get_position()[0] + 1 and position[1] == self.get_position()[1]:
                 self.set_position(position)
             else:
                 print("cannot move")
+
         if self.get_player() == 'b':
-            if position[0] == self.get_position()[0] - 1:
+            if position[0] == self.get_position()[0] - 1 and position[1] == self.get_position()[1]:
                 self.set_position(position)
             else:
                 print("cannot move")
@@ -60,7 +64,10 @@ class King(Piece):
         self.check = False
 
     def __repr__(self):
-        return f"{self.get_player()}1"
+        if self.get_player() == 'a':
+            return "K"
+        else:
+            return "k"
 
     def move(self, position):
         if (position[0] == (self.get_position()[0] + 1 or self.get_position()[0] - 1 or self.get_position()[0])) \
@@ -82,7 +89,10 @@ class Rook(Piece):
         super().__init__(position, player)
 
     def __repr__(self):
-        return f"{self.get_player()}5"
+        if self.get_player() == 'a':
+            return "R"
+        else:
+            return "r"
 
     def move(self, position):
         if position[0] == self.get_position()[0] or position[1] == self.get_position()[1]:
@@ -97,7 +107,10 @@ class Bishop(Piece):
         super().__init__(position, player)
 
     def __repr__(self):
-        return f"{self.get_player()}3"
+        if self.get_player() == 'a':
+            return "B"
+        else:
+            return "b"
 
     def move(self, position):
         if abs(position[0]-self.get_position()[0]) == abs(position[1]-self.get_position()[1]):
@@ -112,7 +125,10 @@ class Queen(Piece):
         super().__init__(position, player)
 
     def __repr__(self):
-        return f"{self.get_player()}2"
+        if self.get_player() == 'a':
+            return "Q"
+        else:
+            return "q"
 
     def move(self, position):
         if (abs(position[0]-self.get_position()[0]) == abs(position[1]-self.get_position()[1])) \
@@ -130,7 +146,10 @@ class Knights(Piece):
         super().__init__(position, player)
 
     def __repr__(self):
-        return f"{self.get_player()}4"
+        if self.get_player() == 'a':
+            return "N"
+        else:
+            return "n"
 
     def move(self, position):
         if ((self.get_position()[0] == (position[0] + 1 or position[0] - 1))
